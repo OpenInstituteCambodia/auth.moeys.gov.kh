@@ -18,12 +18,12 @@ function copytemplate () {
         file_dir=""
     fi
 
-    mkdir -p ./base/${servie}/custom/pages
+    mkdir -p base/${servie}/custom/pages
 
     local cpsource=${war_dir}/${file}
-    local cptarget=./base/${servie}/custom/pages/${file_dir}
+    local cptarget=base/${servie}/custom/pages/${file_dir}
 
-    local srctarget=./src/${servie}/custom/pages/${file_dir}
+    local srctarget=src/${servie}/custom/pages/${file_dir}
 
     echo -e "Copying file:"
     echo -e "\tfrom: ${cpsource}"
@@ -32,7 +32,7 @@ function copytemplate () {
     cp $@ ${cpsource} ${cptarget}
 
     if [ ! -f ${srctarget} ]; then
-        echo -e "\t"
+        echo -e "\tsrc: ${srctarget}"
         cp $@ ${cpsource} ${srctarget}
     fi
 
