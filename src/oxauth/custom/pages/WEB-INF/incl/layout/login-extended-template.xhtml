@@ -1,17 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html">
 <f:view transient="true" locale="#{language.localeCode}">
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title><ui:insert name="pageTitle" /></title>
+		<title>
+			<ui:insert name="pageTitle" />
+		</title>
 		<link rel="icon" href="#{request.contextPath}/servlet/favicon" />
-		<link type="text/css" rel="stylesheet"
-			href="#{oxAuthConfigurationService.getCssLocation()}/style.css" />
+		<link type="text/css" rel="stylesheet" href="#{oxAuthConfigurationService.getCssLocation()}/style.css" />
 		<link type="text/css" rel="stylesheet"
 			href="#{oxAuthConfigurationService.getCssLocation()}/bootstrap.min.css" />
 		<link type="text/css" rel="stylesheet"
@@ -20,114 +19,162 @@
 			href="#{oxAuthConfigurationService.getCssLocation()}/bootstrap-reboot.min.css" />
 		<link type="text/css" rel="stylesheet"
 			href="#{oxAuthConfigurationService.getCssLocation()}/bootstrap-grid.min.css" />
-		<link rel="stylesheet"
-			href="#{oxAuthConfigurationService.getCssLocation()}/fontawesome.min.css" />
-		<link rel="stylesheet"
-			href="#{oxAuthConfigurationService.getCssLocation()}/authorize.css" />
-		<link type="text/css" rel="stylesheet"
-			href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
-		<script
-			src="#{oxAuthConfigurationService.getJsLocation()}/jquery-3.4.1.min.js"></script>
-		<script
-			src="#{oxAuthConfigurationService.getJsLocation()}/popper.min.js"></script>
-		<script
-			src="#{oxAuthConfigurationService.getJsLocation()}/fontawesome.min.js"></script>
-		<script
-			src="#{oxAuthConfigurationService.getJsLocation()}/bootstrap.min.js"></script>
-		<script
-			src="#{oxAuthConfigurationService.getJsLocation()}/bootstrap.bundle.min.js"></script>
-		<script
-			src="#{oxAuthConfigurationService.getJsLocation()}/platform.js"></script>
-		<script
-			src="#{oxAuthConfigurationService.getJsLocation()}/jquery-qrcode-0.17.0.min.js"></script>
-		<script
-			src="#{oxAuthConfigurationService.getJsLocation()}/gluu-auth.js" />
+		<link rel="stylesheet" href="#{oxAuthConfigurationService.getCssLocation()}/fontawesome.min.css" />
+		<link rel="stylesheet" href="#{oxAuthConfigurationService.getCssLocation()}/authorize.css" />
+		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
+		<script src="#{oxAuthConfigurationService.getJsLocation()}/jquery-3.4.1.min.js"></script>
+		<script src="#{oxAuthConfigurationService.getJsLocation()}/popper.min.js"></script>
+		<script src="#{oxAuthConfigurationService.getJsLocation()}/fontawesome.min.js"></script>
+		<script src="#{oxAuthConfigurationService.getJsLocation()}/bootstrap.min.js"></script>
+		<script src="#{oxAuthConfigurationService.getJsLocation()}/bootstrap.bundle.min.js"></script>
+		<script src="#{oxAuthConfigurationService.getJsLocation()}/platform.js"></script>
+		<script src="#{oxAuthConfigurationService.getJsLocation()}/jquery-qrcode-0.17.0.min.js"></script>
+		<script src="#{oxAuthConfigurationService.getJsLocation()}/gluu-auth.js" />
 		<script
 			src="#{oxAuthConfigurationService.getJsLocation()}/jquery-ui.min.js"></script>
 		<ui:insert name="head" />
 
 		<style>
-body {
-	margin-bottom: 3% !important;
-}
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+			}
 
-.footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	color: white;
-	height: 55px;
-	background-color: #00BE79;
-	justify-content: center;
-	margin-left: auto;
-	margin-right: auto;
-}
-</style>
+			#moeys-official-logo img {
+				height: 98px;
+				width: auto;
+			}
+
+			#moeys-official-logo .moeys-slogan {
+				height: auto !important;
+				width: 100% !important;
+			}
+
+			@media (min-width: 576px) {
+				#moeys-official-logo .moeys-slogan {
+					height: 86px !important;
+					width: auto !important;
+				}
+			}
+
+			.bg-moeys-primary {
+				background-color: #007582;
+			}
+
+			.btn-moeys-primary {
+				color: #fff;
+				background-color: #009688;
+				border-color: #00695f;
+			}
+
+			.btn-moeys-primary:hover {
+				background-color: #00574f !important;
+				color: #fff;
+			}
+
+			.text-moeys-primary {
+				color: #009688 !important;
+				text-decoration: none !important;
+			}
+
+			.text-moeys-primary:hover {
+				color: #00574f !important;
+			}
+
+			.text-facebook-primary {
+				color: #1976f2 !important;
+				text-decoration: none !important;
+			}
+
+			.text-facebook-primary:hover {
+				color: #0f4996 !important;
+			}
+
+			.text-decoration-none:hover {
+				text-decoration: none !important;
+			}
+		</style>
 	</h:head>
 	<h:body>
-		<div>
-			<div class="login-logo">
-				<img style="max-height: 70px; padding-bottom: 2px;" id="AppLogo"
-					src="#{request.contextPath}/servlet/logo" />
-			</div>
-			<div class="bs-docs-section"
-				style="border-top: 2px solid #1ab26b !important; margin-bottom: 5px !important; margin-top: 1px !important; padding-top: 1px !important;"></div>
-		</div>
+
+		<head>
+			<section class="container-fluid no-gutters p-0 bg-moeys-primary">
+				<div class="row no-gutters">
+					<div class="col-12">
+						<div id="moeys-official-logo" class="p-sm-5 py-4 w-100 text-center">
+							<img class="moeys-logo"
+								src="https://elearning.moeys.gov.kh/pluginfile.php/1/theme_adaptable/logo/1582273361/100px%20Moeys%20logo.png"
+								alt="moeys-logo" />
+							<img class="moeys-slogan w-sm-100 w-auto"
+								src="https://elearning.moeys.gov.kh/pluginfile.php/1/theme_adaptable/adaptablemarketingimages/0/banner11.png"
+								alt="moeys-slogan" />
+						</div>
+					</div>
+				</div>
+			</section>
+		</head>
 		<div class="body">
 			<ui:insert name="body" />
 		</div>
 	</h:body>
 	<footer class="footer" id="appFooter">
-	<div class="row" style="margin-top:20px;">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6 centered" style="text-align:center;">
-			<p class="centered">
-				&copy; <a target="_blank"
-					href="https://github.com/GluuFederation/oxAuth/blob/master/LICENSE"><h:outputText
-						value="#{msgs['common.gluuInc']}" escape="false" /></a> | <a
-					target="_blank" href="#{client.policyUri}"><h:outputText
-						value="#{msgs['common.privacyPolicy']}" escape="false" /></a> | <a
-					target="_blank" href="#{client.tosUri}"><h:outputText
-						value="#{msgs['common.termsOfService']}" escape="false" /></a>
-			</p>
-		</div>
-		<div class="col-sm-3"></div>
-	</div>
+		<section class="container-fluid no-gutters p-0 bg-moeys-primary">
+			<div class="row no-gutters">
+				<div class="col-12">
+					<div class="text-white text-center my-5">
+						<p>ក្រសួងអប់រំ យុវជន និងកីឡា អាសយដ្ឋាន៖ អគារលេខ ៨០ មហាវិថីព្រះនរោត្តម រាជធានីភ្នំពេញ
+							ព្រះរាជាណាចក្រកម្ពុជា</p>
+						<p>
+							ទូរសព្ទ/ទូរសារ៖ <a href="tel:+85523219285" class="text-white font-weight-bold">(៨៥៥ - ២៣)
+								២១៩
+								២៨៥</a>
+							អ៊ីមែល៖
+							<a class="text-white font-weight-bold" href="mailto:info@moeys.gov.kh">info@moeys.gov.kh</a>
+							/
+							<a href="mailto:webmaster@moeys.gov.kh"
+								class="text-white font-weight-bold">webmaster@moeys.gov.kh</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 	</footer>
 	<script type="text/javascript">
-		//<![CDATA[ 
+		//<![CDATA[
 		$(document)
-				.ready(
-						function() {
-							$(window)
-									.scroll(
-											function() {
-												if (window.innerHeight < 620) {
-													document
-															.getElementById("appFooter").style.display = "none";
-												} else {
-													document
-															.getElementById("appFooter").style.display = "block";
-												}
+			.ready(
+				function () {
+					$(window)
+						.scroll(
+							function () {
+								if (window.innerHeight < 620) {
+									document
+										.getElementById("appFooter").style.display = "none";
+								} else {
+									document
+										.getElementById("appFooter").style.display = "block";
+								}
 
-											});
+							});
 
-							$(window)
-									.on(
-											'resize',
-											function() {
-												var win = $(this);
-												if (win.height() >= 620) {
-													document
-															.getElementById("appFooter").style.display = "block";
-												} else {
-													document
-															.getElementById("appFooter").style.display = "none";
-												}
-											});
-						});
+					$(window)
+						.on(
+							'resize',
+							function () {
+								var win = $(this);
+								if (win.height() >= 620) {
+									document
+										.getElementById("appFooter").style.display = "block";
+								} else {
+									document
+										.getElementById("appFooter").style.display = "none";
+								}
+							});
+				});
 
 		//]]>
 	</script>
 </f:view>
+
 </html>
