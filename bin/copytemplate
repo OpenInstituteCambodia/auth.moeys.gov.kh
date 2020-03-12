@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$(dirname $0)
+
+set -e
+source "${SCRIPT_DIR}/core.incl.sh"
+
+function copytemplate () {
+    local servie=$1
+    local file=$2
+    local war_dir=$(war_template_dir ${servie})
+
+    cp ${war_dir}/${file} ./src/${servie}/custom/pages
+}
+
+copytemplate $@
