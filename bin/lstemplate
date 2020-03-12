@@ -7,7 +7,7 @@ source "${SCRIPT_DIR}/core.incl.sh"
 
 function lstemplate () {
     local servie=$1
-    local dir=$2
+    local dir=${2:-''}
     shift 2
 
     local war_dir=$(war_template_dir ${servie})
