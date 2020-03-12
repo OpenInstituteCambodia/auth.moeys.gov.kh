@@ -319,7 +319,7 @@
 						console.log("onProviderLogin", provider);
 					},
 					getGluuProviders() {
-						const providerdat = '${identity.getWorkingParameter('externalProviders')}';
+						const providerdat = JSON.parse('${identity.getWorkingParameter('externalProviders')}');
 
 						for (var prvid in providerdat) {
 							this.providers.push({
