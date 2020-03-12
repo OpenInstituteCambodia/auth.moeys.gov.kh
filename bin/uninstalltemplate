@@ -9,8 +9,8 @@ source "${SCRIPT_DIR}/core.incl.sh"
 
 SERVICES_SRC=$(ls src)
 
-installtemplate () {
-    echo -e "Install Gluu service theme:"
+uninstalltemplate () {
+    echo -e "Uninstall Gluu service theme:"
 
     if [ ! -d "${OPT_DEPLOY_TARGET}" ]; then
         echo "Gluu is not installed";
@@ -20,7 +20,7 @@ installtemplate () {
     stow --target ${OPT_DEPLOY_TARGET} \
              -Rv src
 
-    echo -e "Successfully installed Gluu service theme!"
+    echo -e "Successfully uninstall Gluu service theme!"
 }
 
-installtemplate $@
+uninstalltemplate $@

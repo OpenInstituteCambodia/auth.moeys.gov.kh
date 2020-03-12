@@ -1,7 +1,12 @@
-.PHONEY: test
+.PHONY: main
 
-test:
-	@echo "Test..."
+main: executable install
+
+install:
+	./bin/installtemplate
+
+uninstall:
+	./bin/uninstalltemplate
 
 executable:
 	@echo "Set executable flag for bin directory!"
