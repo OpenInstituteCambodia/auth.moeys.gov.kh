@@ -18,7 +18,7 @@ uninstalltemplate () {
     fi
 
     stow --target ${OPT_DEPLOY_TARGET} \
-             -Rv src
+             -Dv src
 
     echo -e "Successfully uninstall Gluu service theme!"
 }
