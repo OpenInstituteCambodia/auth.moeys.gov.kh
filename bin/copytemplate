@@ -26,7 +26,7 @@ function copytemplate () {
 
     local srctarget=src/${service}/custom/pages/${file_dir}
 
-    echo -e "Copying file from service ${service}:"
+    echo -e "Copying file from ${service} service:"
     echo -e "\tfrom: ${cpsource}"
     echo -e "\tto: ${cptarget}${file}"
 
