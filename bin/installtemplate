@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$(dirname $0)
+
+set -e
+source "${SCRIPT_DIR}/core.incl.sh"
+
+# OPT_DEPLOY_TARGET: check core.incl.sh
+
+SERVICES_SRC=src/*
+
+installtemplate () {
+    echo -e "Install Gluu service theme:"
+
+    for service in $SERVICES_SRC; do
+        echo -e "\tInstalling ${service} service..."
+
+        stow --target ${OPT_DEPLOY_TARGET}/${service} \
+             -Rv src/${service}
+    done
+
+    echo -e "Successfully deployed Gluu service theme!"
+}
+
+installtemplate $@
