@@ -18,7 +18,8 @@ function copytemplate () {
         file_dir=""
     fi
 
-    cp $@ ${war_dir}/${file} ./src/${servie}/custom/pages/${file_dir}
+    mkdir -p ./base/${servie}/custom/pages
+    cp $@ ${war_dir}/${file} ./base/${servie}/custom/pages/${file_dir}
 }
 
 copytemplate $@
