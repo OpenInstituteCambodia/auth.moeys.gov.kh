@@ -158,14 +158,116 @@
 						<h3>ចូលគណនី</h3>
 						<div class="py-2"></div>
 						<h:form id="loginForm" class="text-left">
+							<section x-data="loginFormComponent()" x-init="mounted" class="container mt-5">
+								<div class="row">
+									<div class="col-sm-6 col-12 text-center">
+										<div class="">
+											<h3>ចូលគណនី</h3>
+											<div class="py-2"></div>
+											<form @submit="onFormSubmit" id="loginForm" class="text-left"
+												name="loginForm" method="post" x-bind:action="formAction"
+												enctype="application/x-www-form-urlencoded">
+												<input name="loginForm" type="hidden" value="loginForm" />
+												<input x-model="provider" id="provider" type="hidden" />
 
-							<div class="row">
-								<div class="offset-3 col-9 text-left">
-									<h:commandButton id="loginButton" value="ចូល" x-on:click="onFormSubmit"
-										action="#{authenticator.authenticate}"
-										class="btn btn-moeys-primary btn-lg w-50 text-left" />
+												<h:messages class="text-danger"></h:messages>
+
+												<div class="form-group row">
+													<label for="username"
+														class="col-sm-3 col-form-label">ឈ្មោះអ្នកប្រើ</label>
+													<div class="col-sm-9">
+														<input x-model="form.username" type="text" class="form-control"
+															id="username" />
+													</div>
+												</div>
+												<div class="form-group row">
+													<label for="password"
+														class="col-sm-3 col-form-label">ពាក្យសម្ងាត់</label>
+													<div class="col-sm-9">
+														<input x-model="form.password" type="password"
+															class="form-control" id="password"
+															name="loginForm:password" />
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<div class="offset-sm-3 col-sm-9 text-left">
+														<div class="form-check">
+															<input x-model="form.remember" class="form-check-input"
+																type="checkbox" value="" id="rememberme" />
+															<label class="form-check-label" for="rememberme">
+																ចងចាំឈ្មោះអ្នកប្រើ
+															</label>
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="offset-3 col-9 text-left">
+														<button class="btn btn-moeys-primary btn-lg w-50 text-left">
+															ចូល
+														</button>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="col-12">
+											<div class="d-block py-4"></div>
+											<a class="h5 text-moeys-primary" x-bind:href="links.forgetPassword">
+												ភ្លេចពាក្យសម្ងាត់ ឬឈ្មោះអ្នកប្រើរបស់អ្នកឬ ?
+											</a>
+
+											<div class="d-block py-2"></div>
+											<div>
+												<h6 class="d-inline-block">ត្រូវតែបើកខូគី នៅក្នុងកម្មវិធីរុករករបស់អ្នក
+												</h6>
+												<span class="d-inline-block align-top">
+													<a x-bind:href="links.enableCookie" target="_blank">
+														<img class="icon iconhelp"
+															alt="ជំនួយអំពី ត្រូវតែបើកខូគី នៅក្នុងកម្មវិធីរុករករបស់អ្នក"
+															title="ជំនួយអំពី ត្រូវតែបើកខូគី នៅក្នុងកម្មវិធីរុករករបស់អ្នក"
+															src="https://elearning.moeys.gov.kh/theme/image.php/adaptable/core/1582273361/help"
+															id="yui_3_17_2_1_1583894054733_47" />
+													</a>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6 col-12 text-center">
+										<div class="">
+											<h3>តើអ្នកមកទីនេះជាលើកដំបូងឬ ?</h3>
+											<div class="py-2"></div>
+											<p class="w-75 mx-auto">
+												ដើម្បីអាចចូលដំណើរការវគ្គសិក្សាបានពេញលេញបាន
+												អ្នកត្រូវចំណាយពេលបន្តិច ដើម្បីបង្កើតគណនីថ្មីសម្រាប់ខ្លួនអ្នក
+												នៅលើតំបន់បណ្ដាញនេះ។
+											</p>
+
+											<a class="btn btn-moeys-primary btn-lg"
+												x-bind:href="links.register">បង្កើតគណនីថ្មី</a>
+										</div>
+
+										<div class="mt-5">
+											<h5 class="font-weight-bold">ចូលដោយប្រើគណនីរបស់អ្នកនៅ</h5>
+											<div class="py-2"></div>
+
+											<div class="">
+												<template x-for="provider in providers" :key="provider.name">
+													<a @click="onProviderLogin(provider.name)"
+														class="d-block text-primary text-decoration-none py-2" href="#">
+														<span class="d-inline-block mr-2">
+															<img x-bind:src="provider.data.logo_img"
+																x-bind:alt="provider.name" class="" width="28px" />
+														</span>
+														<span x-text="provider.data.displayName"
+															class="d-inline-block align-middle h5 m-0"></span>
+													</a>
+												</template>
+											</div>
+										</div>
+									</div>
 								</div>
-							</div>
+							</section>
 						</h:form>
 					</div>
 					<div class="col-12">
@@ -223,86 +325,5 @@
 				</div>
 			</div>
 		</section>
-
-		<script type="text/javascript">
-			function loginFormComponent() {
-				const localStorageKeys = {
-					username: "form-username",
-					password: "form-password"
-				};
-
-				return {
-					providers: [],
-
-					links: {
-						register: "/identity/register.htm",
-						forgetPassword: "/identity/person/passwordReminder.htm",
-						enableCookie: ""
-					},
-
-					form: {
-						provider: "",
-						username: "#{credentials.username}",
-						password: "#{credentials.password}",
-						remember: false
-					},
-
-					formAction: "/oxauth/auth/passport/passportlogin.htm",
-					submitButtonAction: "#{authenticator.authenticate}",
-
-					mounted() {
-						this.fillCredentials();
-						this.getGluuProviders();
-					},
-					fillCredentials() {
-						const username = localStorage.getItem(localStorageKeys.username);
-						const password = localStorage.getItem(localStorageKeys.password);
-
-						if (!username || !password) return;
-
-						this.form.username = username;
-						this.form.password = password;
-						this.form.remember = true;
-					},
-					saveCredentials(username, password) {
-						localStorage.setItem(localStorageKeys.username, username);
-						localStorage.setItem(localStorageKeys.password, password);
-					},
-					clearCredentials() {
-						localStorage.removeItem(localStorageKeys.username);
-						localStorage.removeItem(localStorageKeys.password);
-					},
-					onFormSubmit(event) {
-						event.preventDefault();
-
-						if (this.form.remember) {
-							this.saveCredentials(this.form.username, this.form.password);
-						} else {
-							this.clearCredentials();
-						}
-
-						console.log("onFormSubmit", event);
-					},
-					onProviderLogin(provider) {
-						console.log("onProviderLogin", provider);
-					},
-					getGluuProviders() {
-						const providerdat = '${identity.getWorkingParameter('externalProviders')}'
-
-						for (var prvid in providerdat) {
-							this.providers.push({
-								name: prvid,
-								data: providerdat[prvid]
-							});
-						}
-					}
-				};
-			}
-
-			// Start AlpineJS Service
-			jQuery(document).ready(function () {
-				Alpine.start();
-			});
-		</script>
 	</ui:define>
 </ui:composition>
