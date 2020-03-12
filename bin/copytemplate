@@ -13,9 +13,7 @@ function copytemplate () {
     local war_dir=$(war_template_dir ${service})
     local file_dir=$(dirname ${file})
 
-    if [ "$file_dir" != "." ]; then
-        mkdir -p ${file_dir}
-    else
+    if [ "$file_dir" = "." ]; then
         file_dir=""
     fi
 
@@ -23,17 +21,18 @@ function copytemplate () {
 
     local cpsource=${war_dir}/${file}
     local cptarget=base/${service}/custom/pages/${file_dir}
-
     local srctarget=src/${service}/custom/pages/${file_dir}
 
     echo -e "Copying file from ${service} service:"
     echo -e "\tfrom: ${cpsource}"
     echo -e "\tto: ${cptarget}${file}"
 
+    mkdir -p ${cptarget}
     cp $@ ${cpsource} ${cptarget}
 
     if [ ! -f ${srctarget} ]; then
         echo -e "\tsrc: ${srctarget}${file}"
+        mkdir -p ${srctarget}
         cp $@ ${cpsource} ${srctarget}
     fi
 
