@@ -7,7 +7,7 @@ source "${SCRIPT_DIR}/core.incl.sh"
 
 function lstemplate () {
     local servie=$1
-    local dir=${2:-'/'}
+    local dir=${2:-''}
     shift
 
     if [ -n "$2" ]; then
@@ -16,7 +16,7 @@ function lstemplate () {
 
     local war_dir=$(war_template_dir ${servie})
 
-    ls $@ ${war_dir}${dir}
+    ls $@ ${war_dir}/${dir}
 }
 
 lstemplate $@
