@@ -10,7 +10,7 @@ function lstemplate () {
     local dir=${2:-''}
     shift
 
-    if [ -n "$2" ]; then
+    if [ -n "$dir" ]; then
         shift
     fi
 
