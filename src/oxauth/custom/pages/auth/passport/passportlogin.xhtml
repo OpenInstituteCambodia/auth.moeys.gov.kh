@@ -2,10 +2,9 @@
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:b="http://bootsfaces.net/ui" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:@="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:x-on="http://xmlns.jcp.org/jsf/passthrough" xmlns:x-for="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:x-bind="http://xmlns.jcp.org/jsf/passthrough" xmlns:x-if="http://xmlns.jcp.org/jsf/passthrough"
-	template="/WEB-INF/incl/layout/login-extended-template.xhtml">
+	xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:x-on="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:x-for="http://xmlns.jcp.org/jsf/passthrough" xmlns:x-bind="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:x-if="http://xmlns.jcp.org/jsf/passthrough" template="/WEB-INF/incl/layout/login-extended-template.xhtml">
 
 	<f:metadata>
 		<f:viewAction action="#{authenticator.prepareAuthenticationForStep}" if="#{not identity.loggedIn}" />
@@ -210,7 +209,7 @@
 
 						<div class="">
 							<template x-for="provider in providers" :key="provider.name">
-								<a @click="onProviderLogin(provider.name)"
+								<a x-on:click="onProviderLogin(provider.name)"
 									class="d-block text-primary text-decoration-none py-2" href="#">
 									<span class="d-inline-block mr-2">
 										<img x-bind:src="provider.data.logo_img" x-bind:alt="provider.name" class=""
