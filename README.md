@@ -1,5 +1,5 @@
-# moeys-gluu-theme
-MoEYS Gluu Custom Theme
+# MoEYS Gluu Custom Theme
+> WIP
 
 ## Getting Started
 To getting started with installing this custom theme please check you server system requirement below:
