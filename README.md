@@ -2,9 +2,20 @@
 > WIP
 
 ## Getting Started
-To getting started with installing this custom theme please check you server system requirement below:
+To getting started with installing this custom theme login to the Gluu `chroot` environment:
+
+```sh
+sudo /sbin/gluu-serverd login
+```
+
+Then clone this repo to your Gluu `chroot` env:
+```sh
+$ cd ~ # Change directory to the home directory
+$ git clone https://github.com/socheatsok78/moeys-gluu-theme.git
+```
 
 ### System Requirement
+Please check you server system requirement below:
 The `make` and `stow` command are required to be installed on your system before continue:
 
 ```sh
@@ -30,3 +41,12 @@ $ sudo make uninstall
 ```
 
 This will remove the template from your current Gluu installation.
+
+
+### Post-Install
+After successfully install the theme, run the following command:
+
+```sh
+$ chown -R jetty:jetty /opt/gluu/jetty/*/custom/pages/
+$ chmod -R a-x+rX /opt/gluu/jetty/*/custom/pages/
+```
