@@ -155,8 +155,7 @@
 					<div class="">
 						<h3>ចូលគណនី</h3>
 						<div class="py-2"></div>
-						<form @submit="onFormSubmit" id="loginForm" class="text-left" name="loginForm" method="post"
-							x-bind:action="formAction" enctype="application/x-www-form-urlencoded">
+						<h:form id="loginForm" @submit="onFormSubmit" class="text-left">
 							<input name="loginForm" type="hidden" value="loginForm" />
 							<input x-model="provider" id="provider" type="hidden" />
 
@@ -195,7 +194,7 @@
 									</button>
 								</div>
 							</div>
-						</form>
+						</h:form>
 					</div>
 					<div class="col-12">
 						<div class="d-block py-4"></div>
