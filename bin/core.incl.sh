@@ -1,4 +1,5 @@
-OPT_GLUU_SERVER="/opt/gluu-server"
+OPT_GLUU_SERVER=/opt/gluu-server
+OPT_DEPLOY_TARGET=${OPT_GLUU_SERVER}/opt/gluu/jetty
 
 function war_template_dir() {
     local service=$1
