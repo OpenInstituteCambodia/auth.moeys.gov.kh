@@ -7,17 +7,13 @@ source "${SCRIPT_DIR}/core.incl.sh"
 
 # OPT_DEPLOY_TARGET: check core.incl.sh
 
-SERVICES_SRC=src/*
+SERVICES_SRC=$(ls src)
 
 installtemplate () {
     echo -e "Install Gluu service theme:"
 
-    for service in $SERVICES_SRC; do
-        echo -e "\tInstalling ${service} service..."
-
-        stow --target ${OPT_DEPLOY_TARGET}/${service} \
-             -Rv src/${service}
-    done
+    stow --target ${OPT_DEPLOY_TARGET} \
+             -Rv src
 
     echo -e "Successfully deployed Gluu service theme!"
 }
