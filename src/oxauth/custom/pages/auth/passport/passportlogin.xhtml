@@ -161,10 +161,9 @@
 
 							<div class="row">
 								<div class="offset-3 col-9 text-left">
-									<button x-on:click="onFormSubmit"
-										class="btn btn-moeys-primary btn-lg w-50 text-left">
-										ចូល
-									</button>
+									<h:commandButton id="loginButton" value="ចូល" x-on:click="onFormSubmit"
+										action="#{authenticator.authenticate}"
+										class="btn btn-moeys-primary btn-lg w-50 text-left" />
 								</div>
 							</div>
 						</h:form>
