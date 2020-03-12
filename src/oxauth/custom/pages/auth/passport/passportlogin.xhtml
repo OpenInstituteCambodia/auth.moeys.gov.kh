@@ -289,10 +289,7 @@
 						console.log("onProviderLogin", provider);
 					},
 					getGluuProviders() {
-						//const providerdat = '${identity.getWorkingParameter('externalProviders')}';
-						const providerdat = JSON.parse(
-							'{"facebook": {"requestForEmail": true, "displayName": "Continue with Facebook", "emailLinkingSafe": true, "type": "oauth", "logo_img": "https://en.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png", "saml": false}, "google": {"requestForEmail": true, "displayName": "Continue with Google", "emailLinkingSafe": true, "type": "oauth", "logo_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/200px-Google_%22G%22_Logo.svg.png", "saml": false}}'
-						);
+						const providerdat = '${identity.getWorkingParameter('externalProviders')}'
 
 						for (var prvid in providerdat) {
 							this.providers.push({
