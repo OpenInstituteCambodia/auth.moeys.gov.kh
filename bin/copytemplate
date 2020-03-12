@@ -28,12 +28,12 @@ function copytemplate () {
 
     echo -e "Copying file:"
     echo -e "\tfrom: ${cpsource}"
-    echo -e "\tto: ${cptarget}"
+    echo -e "\tto: ${cptarget}/${file}"
 
     cp $@ ${cpsource} ${cptarget}
 
     if [ ! -f ${srctarget} ]; then
-        echo -e "\tsrc: ${srctarget}"
+        echo -e "\tsrc: ${srctarget}/${file}"
         cp $@ ${cpsource} ${srctarget}
     fi
 
