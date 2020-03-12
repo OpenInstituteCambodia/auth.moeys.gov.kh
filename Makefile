@@ -3,10 +3,10 @@
 main: executable install
 
 install:
-	./bin/installtemplate
+	@./bin/installtemplate
 
 uninstall:
-	./bin/uninstalltemplate
+	@./bin/uninstalltemplate
 
 executable:
 	@echo "Set executable flag for bin directory!"
