@@ -15,6 +15,7 @@ function copytemplate () {
 
     if [ "$file_dir" != "." ]; then
         mkdir -p ${file_dir}
+    else
         file_dir=""
     fi
 
