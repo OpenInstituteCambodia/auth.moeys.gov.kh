@@ -11,8 +11,14 @@ function copytemplate () {
     shift 2
 
     local war_dir=$(war_template_dir ${servie})
+    local file_dir=$(dirname ${file})
 
-    cp $@ ${war_dir}/${file} ./src/${servie}/custom/pages
+    if [ "$file_dir" != "." ]; then
+        mkdir -p ${file_dir}
+        file_dir=""
+    fi
+
+    cp $@ ${war_dir}/${file} ./src/${servie}/custom/pages/${file_dir}
 }
 
 copytemplate $@
