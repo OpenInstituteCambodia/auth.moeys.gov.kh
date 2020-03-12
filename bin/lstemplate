@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$(dirname $0)
+
+set -e
+source "${SCRIPT_DIR}/core.incl.sh"
+
+function lstemplate () {
+    local servie=$1
+    local war_dir=$(war_template_dir ${servie})
+
+    ls ${war_dir}/
+}
+
+lstemplate $@
