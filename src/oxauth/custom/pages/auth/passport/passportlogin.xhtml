@@ -224,5 +224,90 @@
 				</div>
 			</div>
 		</section>
+
+		<script type="text/javascript">
+			function loginFormComponent() {
+				const localStorageKeys = {
+					username: "form-username",
+					password: "form-password"
+				};
+
+				return {
+					providers: [],
+
+					links: {
+						register: "/identity/register.htm",
+						forgetPassword: "/identity/person/passwordReminder.htm",
+						enableCookie:
+							"https://elearning.moeys.gov.kh/help.php?component=moodle&identifier=cookiesenabled&lang=km"
+					},
+
+					form: {
+						provider: "",
+						username: "#{credentials.username}",
+						password: "#{credentials.password}",
+						remember: false
+					},
+
+					formAction: "/oxauth/auth/passport/passportlogin.htm",
+					submitButtonAction: "#{authenticator.authenticate}",
+
+					mounted() {
+						this.fillCredentials();
+						this.getGluuProviders();
+					},
+					fillCredentials() {
+						const username = localStorage.getItem(localStorageKeys.username);
+						const password = localStorage.getItem(localStorageKeys.password);
+
+						if (!username || !password) return;
+
+						this.form.username = username;
+						this.form.password = password;
+						this.form.remember = true;
+					},
+					saveCredentials(username, password) {
+						localStorage.setItem(localStorageKeys.username, username);
+						localStorage.setItem(localStorageKeys.password, password);
+					},
+					clearCredentials() {
+						localStorage.removeItem(localStorageKeys.username);
+						localStorage.removeItem(localStorageKeys.password);
+					},
+					onFormSubmit(event) {
+						event.preventDefault();
+
+						if (this.form.remember) {
+							this.saveCredentials(this.form.username, this.form.password);
+						} else {
+							this.clearCredentials();
+						}
+
+						console.log("onFormSubmit", event);
+					},
+					onProviderLogin(provider) {
+						console.log("onProviderLogin", provider);
+					},
+					getGluuProviders() {
+						//const providerdat = '${identity.getWorkingParameter('externalProviders')}';
+						const providerdat = JSON.parse(
+							'{"facebook": {"requestForEmail": true, "displayName": "Continue with Facebook", "emailLinkingSafe": true, "type": "oauth", "logo_img": "https://en.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png", "saml": false}, "google": {"requestForEmail": true, "displayName": "Continue with Google", "emailLinkingSafe": true, "type": "oauth", "logo_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/200px-Google_%22G%22_Logo.svg.png", "saml": false}}'
+						);
+
+						for (var prvid in providerdat) {
+							this.providers.push({
+								name: prvid,
+								data: providerdat[prvid]
+							});
+						}
+					}
+				};
+			}
+
+			// Start AlpineJS Service
+			$(document).ready(function () {
+				Alpine.start();
+			});
+		</script>
 	</ui:define>
 </ui:composition>
