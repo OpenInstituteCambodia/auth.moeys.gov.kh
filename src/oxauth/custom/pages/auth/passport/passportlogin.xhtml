@@ -160,33 +160,30 @@
 						<h3>ចូលគណនី</h3>
 						<div class="py-2"></div>
 						<h:form id="loginForm" x-on:submit="onFormSubmit" class="text-left">
-							<!-- <form x-on:submit="onFormSubmit" id="loginForm" class="text-left" name="loginForm" method="post"
-							x-bind:action="formAction" enctype="application/x-www-form-urlencoded"> -->
-							<!-- <input name="loginForm" type="hidden" value="loginForm" /> -->
-							<input x-model="form.provider" id="provider" name="loginForm:provider" type="hidden" />
+							<h:inputHidden x-model="form.provider" id="provider" />
 
 							<h:messages class="text-danger"></h:messages>
 
 							<div class="form-group row">
 								<label for="username" class="col-sm-3 col-form-label">ឈ្មោះអ្នកប្រើ</label>
 								<div class="col-sm-9">
-									<input x-model="form.username" type="text" class="form-control" id="username"
-										name="loginForm:username" />
+									<h:inputText x-model="form.username" id="username" value="#{credentials.username}"
+										autocomplete="off" class="form-control usernameField" />
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="password" class="col-sm-3 col-form-label">ពាក្យសម្ងាត់</label>
 								<div class="col-sm-9">
-									<input x-model="form.password" type="password" class="form-control" id="password"
-										name="loginForm:password" />
+									<h:inputSecret x-model="form.password" id="password" value="#{credentials.password}"
+										autocomplete="off" class="form-control passwordField" />
 								</div>
 							</div>
 
 							<div class="form-group row">
 								<div class="offset-sm-3 col-sm-9 text-left">
 									<div class="form-check">
-										<input x-model="form.remember" class="form-check-input" type="checkbox" value=""
-											id="rememberme" />
+										<input x-model="form.remember" type="checkbox" value="rememberme"
+											id="rememberme" class="form-check-input rememberField" />
 										<label class="form-check-label" for="rememberme">
 											ចងចាំឈ្មោះអ្នកប្រើ
 										</label>
@@ -196,11 +193,6 @@
 
 							<div class="row">
 								<div class="offset-3 col-9 text-left">
-									<!-- <button class="btn btn-moeys-primary btn-lg w-50 text-left"
-										name="loginForm:loginButton">
-										ចូល
-									</button> -->
-
 									<h:commandButton id="loginButton" value="#{msgs['login.login']}"
 										action="#{authenticator.authenticate}"
 										class="btn btn-moeys-primary btn-lg w-50 text-left" />
