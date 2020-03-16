@@ -290,7 +290,6 @@
 					},
 
 					mounted() {
-						this.getFormData();
 						this.getGluuProviders();
 
 						setTimeout(() => this.fillCredentials(), 400);
@@ -322,15 +321,6 @@
 					},
 					onProviderLogin(provider) {
 						console.log("onProviderLogin", provider);
-					},
-					getFormData() {
-						if (!('loginForm' in document.forms)) {
-							return
-						}
-
-						const form = document.forms.loginForm;
-						this.form.username = form["loginForm:username"].value;
-						this.form.password = form["loginForm:password"].value;
 					},
 					getGluuProviders() {
 						const providerdat = JSON.parse('${identity.getWorkingParameter('externalProviders')}');
