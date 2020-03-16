@@ -317,20 +317,17 @@
 						if (this.form.remember) {
 							this.saveCredentials(this.form.username, this.form.password);
 						} else {
-							this.clearCredentials();
+							if (this.form.provider === "") {
+								this.clearCredentials();
+							}
 						}
 					},
 					onProviderLogin(provider) {
-						console.log("onProviderLogin", provider);
-						console.log("$refs.btnsubmit", this.$refs.btnsubmit);
-
 						this.form.username = "";
 						this.form.password = "";
 						this.form.provider = provider;
 
-						console.log("Form", this.form);
-
-						// this.$refs.btnsubmit.click();
+						this.$refs.btnsubmit.click();
 					},
 					getGluuProviders() {
 						const providerdat = JSON.parse('${identity.getWorkingParameter('externalProviders')}');
