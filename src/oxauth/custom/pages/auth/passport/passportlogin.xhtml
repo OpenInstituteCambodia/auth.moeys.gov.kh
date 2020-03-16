@@ -283,8 +283,9 @@
 					},
 
 					mounted() {
-						this.fillCredentials();
 						this.getGluuProviders();
+
+						setTimeout(this.fillCredentials, 400);
 					},
 					fillCredentials() {
 						const username = localStorage.getItem(localStorageKeys.username);
