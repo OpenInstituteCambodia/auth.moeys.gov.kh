@@ -159,7 +159,7 @@
 					<div class="">
 						<h3>ចូលគណនី</h3>
 						<div class="py-2"></div>
-						<h:form id="loginForm" x-on:submit="onFormSubmit" class="text-left">
+						<h:form id="loginForm" class="text-left">
 							<h:inputHidden x-model="form.provider" id="provider" />
 
 							<h:messages class="text-danger"></h:messages>
@@ -193,8 +193,8 @@
 
 							<div class="row">
 								<div class="offset-3 col-9 text-left">
-									<h:commandButton id="loginButton" value="#{msgs['login.login']}"
-										action="#{authenticator.authenticate}"
+									<h:commandButton id="loginButton" x-on:click="onFormSubmit"
+										value="#{msgs['login.login']}" action="#{authenticator.authenticate}"
 										class="btn btn-moeys-primary btn-lg w-50 text-left" />
 								</div>
 							</div>
