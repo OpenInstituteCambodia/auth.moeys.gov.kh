@@ -297,7 +297,7 @@
 					mounted() {
 						this.getGluuProviders();
 
-						setTimeout(() => this.fillCredentials(), 400);
+						setTimeout(() => this.fillCredentials(), 1000);
 					},
 					fillCredentials() {
 						const username = localStorage.getItem(localStorageKeys.username);
@@ -331,7 +331,7 @@
 						this.form.password = "";
 						this.form.provider = provider;
 
-						this.$refs.btnsubmit.click();
+						setTimeout(() => this.$refs.btnsubmit.click(), 500);
 					},
 					getGluuProviders() {
 						const providerdat = JSON.parse('${identity.getWorkingParameter('externalProviders')}');
