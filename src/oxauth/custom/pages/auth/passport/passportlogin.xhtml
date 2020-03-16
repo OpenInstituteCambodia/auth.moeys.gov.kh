@@ -313,6 +313,31 @@
 							this.clearCredentials();
 						}
 
+						// loginForm:  loginForm
+						// loginForm:provider
+						// loginForm:username: admin
+						// loginForm:password: secret
+						// loginForm:loginButton: Login
+						// javax.faces.ViewState: stateless
+
+						const action = this.formAction;
+
+						const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+
+						const data = new FormData();
+						data.append("loginForm", "loginForm");
+						data.append("loginForm:provider", "");
+						data.append("loginForm:username", this.form.username);
+						data.append("loginForm:password", this.form.password);
+						data.append("loginForm:loginButton", "Login");
+						data.append("javax.faces.ViewState", "stateless");
+
+						const request = axios.post(action, data, config);
+
+						request
+							.then(res => console.log(res))
+							.catch(err => console.warn(err));
+
 						console.log("onFormSubmit", event);
 					},
 					onProviderLogin(provider) {
