@@ -160,8 +160,6 @@
 						<h3>ចូលគណនី</h3>
 						<div class="py-2"></div>
 						<h:form id="loginForm" class="text-left">
-							<f:passThroughAttribute name="x-on:submit" value="onFormSubmit" />
-
 							<h:inputHidden id="provider">
 								<f:passThroughAttribute name="x-model" value="form.provider" />
 							</h:inputHidden>
@@ -201,9 +199,10 @@
 
 							<div class="row">
 								<div class="offset-3 col-9 text-left">
-									<h:commandButton id="loginButton" x-on:click="onFormSubmit"
-										value="#{msgs['login.login']}" action="#{authenticator.authenticate}"
-										class="btn btn-moeys-primary btn-lg w-50 text-left" />
+									<h:commandButton id="loginButton" value="ចូល" action="#{authenticator.authenticate}"
+										class="btn btn-moeys-primary btn-lg w-50 text-left">
+										<f:passThroughAttribute name="x-on:submit" value="onFormSubmit" />
+									</h:commandButton>
 								</div>
 							</div>
 							<!-- </form> -->
@@ -315,19 +314,11 @@
 						localStorage.removeItem(localStorageKeys.password);
 					},
 					onFormSubmit(event) {
-						event.preventDefault();
-
 						if (this.form.remember) {
 							this.saveCredentials(this.form.username, this.form.password);
 						} else {
 							this.clearCredentials();
 						}
-
-						console.log("onFormSubmit", event);
-
-						// Trigger form submit action
-						const form = event.target;
-						form["loginForm:loginButton"].click();
 					},
 					onProviderLogin(provider) {
 						console.log("onProviderLogin", provider);
