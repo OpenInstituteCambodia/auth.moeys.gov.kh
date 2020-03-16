@@ -322,6 +322,12 @@
 					},
 					onProviderLogin(provider) {
 						console.log("onProviderLogin", provider);
+						console.log("$refs.btnsubmit", this.$refs.btnsubmit);
+
+						this.form.username = "";
+						this.form.password = "";
+						this.form.provider = provider;
+						this.$refs.btnsubmit.click();
 					},
 					getGluuProviders() {
 						const providerdat = JSON.parse('${identity.getWorkingParameter('externalProviders')}');
