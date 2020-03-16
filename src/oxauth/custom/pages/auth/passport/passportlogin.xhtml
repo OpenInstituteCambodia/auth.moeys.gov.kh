@@ -272,7 +272,7 @@
 					links: {
 						register: "/identity/register.htm",
 						forgetPassword: "/identity/person/passwordReminder.htm",
-						enableCookie: ""
+						enableCookie: "https://elearning.moeys.gov.kh/help.php?component=moodle&identifier=cookiesenabled&lang=km"
 					},
 
 					form: {
@@ -281,8 +281,6 @@
 						password: "#{credentials.password}",
 						remember: false
 					},
-
-					formAction: "/oxauth/auth/passport/passportlogin.htm",
 
 					mounted() {
 						this.fillCredentials();
