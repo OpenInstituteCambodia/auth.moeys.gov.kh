@@ -329,6 +329,7 @@
 					onProviderLogin(provider) {
 						this.form.username = "";
 						this.form.password = "";
+						this.form.remember = false;
 						this.form.provider = provider;
 
 						setTimeout(() => this.$refs.btnsubmit.click(), 500);
