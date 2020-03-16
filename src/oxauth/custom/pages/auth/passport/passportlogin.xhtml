@@ -201,7 +201,8 @@
 								<div class="offset-3 col-9 text-left">
 									<h:commandButton id="loginButton" value="ចូល" action="#{authenticator.authenticate}"
 										class="btn btn-moeys-primary btn-lg w-50 text-left">
-										<f:passThroughAttribute name="x-on:submit" value="onFormSubmit" />
+										<f:passThroughAttribute name="x-ref" value="btnsubmit" />
+										<f:passThroughAttribute name="x-on:click" value="onFormSubmit" />
 									</h:commandButton>
 								</div>
 							</div>
