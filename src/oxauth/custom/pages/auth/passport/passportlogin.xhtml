@@ -326,7 +326,8 @@
 						console.log("onFormSubmit", event);
 
 						// Trigger form submit action
-						event.target.submit();
+						const form = event.target;
+						form["loginForm:loginButton"].click();
 					},
 					onProviderLogin(provider) {
 						console.log("onProviderLogin", provider);
