@@ -160,7 +160,11 @@
 						<h3>ចូលគណនី</h3>
 						<div class="py-2"></div>
 						<h:form id="loginForm" class="text-left">
-							<h:inputHidden x-model="form.provider" id="provider" />
+							<f:passThroughAttribute name="x-on:submit" value="onFormSubmit" />
+
+							<h:inputHidden id="provider">
+								<f:passThroughAttribute name="x-model" value="form.provider" />
+							</h:inputHidden>
 
 							<h:messages class="text-danger"></h:messages>
 
@@ -176,8 +180,10 @@
 							<div class="form-group row">
 								<label for="password" class="col-sm-3 col-form-label">ពាក្យសម្ងាត់</label>
 								<div class="col-sm-9">
-									<h:inputSecret x-model="form.password" id="password" value="#{credentials.password}"
-										class="form-control passwordField" />
+									<h:inputSecret id="password" value="#{credentials.password}"
+										class="form-control passwordField">
+										<f:passThroughAttribute name="x-model" value="form.password" />
+									</h:inputSecret>
 								</div>
 							</div>
 
