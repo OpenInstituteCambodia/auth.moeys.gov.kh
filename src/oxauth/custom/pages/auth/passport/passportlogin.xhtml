@@ -162,14 +162,15 @@
 						<form x-on:submit="onFormSubmit" id="loginForm" class="text-left" name="loginForm" method="post"
 							x-bind:action="formAction" enctype="application/x-www-form-urlencoded">
 							<input name="loginForm" type="hidden" value="loginForm" />
-							<input x-model="provider" id="provider" type="hidden" />
+							<input x-model="loginForm:provider" id="provider" type="hidden" />
 
 							<h:messages class="text-danger"></h:messages>
 
 							<div class="form-group row">
 								<label for="username" class="col-sm-3 col-form-label">ឈ្មោះអ្នកប្រើ</label>
 								<div class="col-sm-9">
-									<input x-model="form.username" type="text" class="form-control" id="username" />
+									<input x-model="form.username" type="text" class="form-control" id="username"
+										name="loginForm:username" />
 								</div>
 							</div>
 							<div class="form-group row">
@@ -194,7 +195,8 @@
 
 							<div class="row">
 								<div class="offset-3 col-9 text-left">
-									<button class="btn btn-moeys-primary btn-lg w-50 text-left">
+									<button class="btn btn-moeys-primary btn-lg w-50 text-left"
+										name="loginForm:loginButton">
 										ចូល
 									</button>
 								</div>
@@ -315,32 +317,10 @@
 							this.clearCredentials();
 						}
 
-						// loginForm:  loginForm
-						// loginForm:provider
-						// loginForm:username: admin
-						// loginForm:password: secret
-						// loginForm:loginButton: Login
-						// javax.faces.ViewState: stateless
-
-						const action = this.formAction;
-
-						const config = { headers: { "Content-Type": "multipart/form-data" } };
-
-						const data = new FormData();
-						data.append("loginForm", "loginForm");
-						data.append("loginForm:provider", "");
-						data.append("loginForm:username", this.form.username);
-						data.append("loginForm:password", this.form.password);
-						data.append("loginForm:loginButton", "Login");
-						data.append("javax.faces.ViewState", "stateless");
-
-						const request = axios.post(action, data, config);
-
-						request
-							.then(res => console.log(res))
-							.catch(err => console.warn(err));
-
 						console.log("onFormSubmit", event);
+
+						// Trigger form submit action
+						event.target.submit();
 					},
 					onProviderLogin(provider) {
 						console.log("onProviderLogin", provider);
