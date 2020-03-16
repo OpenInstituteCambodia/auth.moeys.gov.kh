@@ -258,6 +258,8 @@
 		</section>
 
 		<script type="text/javascript">
+			//<![CDATA[
+
 			function loginFormComponent() {
 				const localStorageKeys = {
 					username: "form-username",
@@ -322,7 +324,7 @@
 
 						const action = this.formAction;
 
-						const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+						const config = { headers: { "Content-Type": "multipart/form-data" } };
 
 						const data = new FormData();
 						data.append("loginForm", "loginForm");
@@ -360,6 +362,8 @@
 			jQuery(document).ready(function () {
 				Alpine.start();
 			});
+
+			//]]>
 		</script>
 	</ui:define>
 </ui:composition>
