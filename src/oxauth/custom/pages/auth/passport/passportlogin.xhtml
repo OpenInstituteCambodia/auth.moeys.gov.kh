@@ -19,8 +19,9 @@
 				padding: 0;
 			}
 
-			.body {
-				min-height: 550px;
+			.section-login-container {
+				margin-top: 100px;
+				margin-bottom: 100px;
 			}
 
 			.navbar-nav {
@@ -157,7 +158,7 @@
 	</ui:define>
 
 	<ui:define name="body">
-		<section x-data="loginFormComponent()" x-init="mounted" class="container mt-5">
+		<section x-data="loginFormComponent()" x-init="mounted" class="container section-login-container">
 			<div class="row">
 				<div class="col-sm-6 col-12 text-center">
 					<div class="">
