@@ -327,7 +327,10 @@
 						this.form.username = "";
 						this.form.password = "";
 						this.form.provider = provider;
-						this.$refs.btnsubmit.click();
+
+						console.log("Form", this.form);
+
+						// this.$refs.btnsubmit.click();
 					},
 					getGluuProviders() {
 						const providerdat = JSON.parse('${identity.getWorkingParameter('externalProviders')}');
