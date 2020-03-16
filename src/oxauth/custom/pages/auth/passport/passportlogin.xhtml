@@ -196,10 +196,13 @@
 
 							<div class="row">
 								<div class="offset-3 col-9 text-left">
-									<button class="btn btn-moeys-primary btn-lg w-50 text-left"
+									<!-- <button class="btn btn-moeys-primary btn-lg w-50 text-left"
 										name="loginForm:loginButton">
 										ចូល
-									</button>
+									</button> -->
+
+									<h:commandButton id="loginButton" value="ចូល" action="#{authenticator.authenticate}"
+										class="btn btn-moeys-primary btn-lg w-50 text-left" />
 								</div>
 							</div>
 							<!-- </form> -->
