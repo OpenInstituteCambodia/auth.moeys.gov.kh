@@ -1,7 +1,8 @@
 [![MoEYS Gluu Custom Theme](docs/img/cover.png)](#readme)
 
 # MoEYS Gluu Custom Theme
-> WIP
+![Gluu Server: v4.1](https://badgen.net/badge/Gluu%20Server/v4.1/green)
+![repo status: wip](https://badgen.net/badge/repo%20status/WIP/yellow)
 
 This is a custom Gluu theme for MoEYS Identity Service https://auth.moeys.gov.kh
 
