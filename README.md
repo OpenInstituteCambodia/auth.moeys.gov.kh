@@ -6,7 +6,7 @@
 This is a custom Gluu theme for MoEYS Identity Service https://auth.moeys.gov.kh
 
 #### Folder structures:
-- `base`: the base folder is the default un-modified page copied from Gluu's jetty war use for references on customizing the new page
+- `base`: the base folder is the default un-modified page copied from Gluu's jetty war use for references
 - `src`: the fully customized pages based on the content from `base` folder
 - `bin`: this folder contain cli tools for copying default template and installing template
 
