@@ -1,4 +1,4 @@
-![MoEYS Gluu Custom Theme](docs/img/cover.png)
+[![MoEYS Gluu Custom Theme](docs/img/cover.png)](#readme)
 
 # MoEYS Gluu Custom Theme
 > WIP
