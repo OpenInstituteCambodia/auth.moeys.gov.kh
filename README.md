@@ -1,4 +1,4 @@
-<img src="docs/img/cover.jpg" style="border-radius: 20px; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; margin-bottom: 1.5rem;" />
+<img src="docs/img/cover.png" style="margin-bottom: 1.5rem;" />
 
 # MoEYS Gluu Custom Theme
 > WIP
