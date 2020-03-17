@@ -1,4 +1,4 @@
-<img src="docs/img/cover.png" style="margin-bottom: 1.5rem;" />
+![MoEYS Gluu Custom Theme](docs/img/cover.png)
 
 # MoEYS Gluu Custom Theme
 > WIP
