@@ -6,6 +6,8 @@
 
 This is a custom Gluu theme for MoEYS Identity Service https://auth.moeys.gov.kh
 
+> see https://gluu.org/docs/ce/4.1/operation/custom-design/ for more information
+
 #### Folder structures:
 - `base`: the base folder is the default un-modified page copied from Gluu's jetty war use for references
 - `src`: the fully customized pages based on the content from `base` folder
@@ -60,6 +62,10 @@ After successfully install the theme, run the following command:
 $ chown -R jetty:jetty /opt/gluu/jetty/*/custom/pages/
 $ chmod -R a-x+rX /opt/gluu/jetty/*/custom/pages/
 ```
+
+## :warning: Warning
+Upgrade will not apply any changes to the applied theme folder. After installing an upgrade package, the administrator should reapply changes manually.
+This theme may or may not compatible with your current installation of Gluu.
 
 ### License
 [![BSD 3-Clause License](https://img.shields.io/github/license/socheatsok78/angkorgreen-biz-docs)](LICENSE)
