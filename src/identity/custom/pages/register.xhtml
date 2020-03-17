@@ -49,8 +49,8 @@
 			}
 		</style>
 		<ui:fragment rendered="#{not registerPersonAction.captchaDisabled}">
-			<script async="async" defer="defer" src="https://www.google.com/recaptcha/api.js" />
-			</ui:fragment>
+			<script async="async" defer="defer" src="https://www.google.com/recaptcha/api.js"></script>
+		</ui:fragment>
 	</ui:define>
 	<ui:define name="body">
 		<div id="formArea">
@@ -58,10 +58,9 @@
 				<!-- Registration Form -->
 				<h:form id="personRegistrationForm">
 					<div class="login-box" style="margin-top: 0px !important;">
-						<b:messages redisplay="true" recursive="true"
-							globalOnly="true" severity="info,warn,error,fatal" />
-						<b:panel title="User Registration" look="primary"
-							iconAwesome="fa-user-plus" collapsible="false"
+						<b:messages redisplay="true" recursive="true" globalOnly="true"
+							severity="info,warn,error,fatal" />
+						<b:panel title="User Registration" look="primary" iconAwesome="fa-user-plus" collapsible="false"
 							style="background: white; color: black;">
 							<div class="row" style="margin-bottom: 1px;">
 								<div class="col-md-12">
@@ -81,8 +80,7 @@
 										value="#{registerPersonAction.mandatoryAttributes}" />
 									<div id="registrationFormHolder">
 										<a4j:repeat rowKeyVar="_custAttrIdx"
-											value="#{registerPersonAction.person.customAttributes}"
-											var="_custAttr">
+											value="#{registerPersonAction.person.customAttributes}" var="_custAttr">
 											<a4j:outputPanel>
 												<ui:param name="_mandatory" value="#{_custAttr.mandatory}" />
 												<ox:decorate id="_custAttrIdx"
@@ -109,9 +107,8 @@
 														<f:selectItem itemValue="male" itemLabel="male" />
 													</h:selectOneMenu>
 													<h:message for="custId_#{_custAttr.metadata.displayName}" />
-													<h:outputText id="custIdText"
-														rendered="#{_custAttr.readonly}" size="40"
-														value="#{_custAttr.value}">
+													<h:outputText id="custIdText" rendered="#{_custAttr.readonly}"
+														size="40" value="#{_custAttr.value}">
 													</h:outputText>
 													<h:outputText value=" " />
 													<!-- Date Attribute -->
@@ -141,50 +138,39 @@
 													value="#{_custAttr.metadata.gluuTooltip}" />
 											</a4j:outputPanel>
 										</a4j:repeat>
-										<ox:decorate id="passwordField"
-											label="#{msg['register.password']}"
-											style="margin-left: -15px;"
-											template="/WEB-INF/incl/layout/edit.xhtml">
-											<h:inputSecret autocomplete="off" class="form-control"
-												id="password" binding="#{passwordComponent}" maxlength="60"
-												redisplay="true" required="true" size="40" tabindex="6"
+										<ox:decorate id="passwordField" label="#{msg['register.password']}"
+											style="margin-left: -15px;" template="/WEB-INF/incl/layout/edit.xhtml">
+											<h:inputSecret autocomplete="off" class="form-control" id="password"
+												binding="#{passwordComponent}" maxlength="60" redisplay="true"
+												required="true" size="40" tabindex="6"
 												value="#{registerPersonAction.password}" />
 											<h:outputText value=" " />
 										</ox:decorate>
-										<ox:decorate id="repeatPasswordField"
-											label="#{msg['register.repeatPassword']}"
-											style="margin-left: -15px;"
-											template="/WEB-INF/incl/layout/edit.xhtml">
+										<ox:decorate id="repeatPasswordField" label="#{msg['register.repeatPassword']}"
+											style="margin-left: -15px;" template="/WEB-INF/incl/layout/edit.xhtml">
 											<h:inputSecret autocomplete="off" class="form-control"
-												id="passwordValidation" maxlength="60" redisplay="true"
-												required="true" size="40" tabindex="7"
-												value="#{registerPersonAction.repeatPassword}">
+												id="passwordValidation" maxlength="60" redisplay="true" required="true"
+												size="40" tabindex="7" value="#{registerPersonAction.repeatPassword}">
 												<f:validator validatorId="equalsValidator" />
-												<f:attribute name="otherValue"
-													value="#{passwordComponent.value}" />
+												<f:attribute name="otherValue" value="#{passwordComponent.value}" />
 											</h:inputSecret>
 											<h:outputText value=" " />
 										</ox:decorate>
 										<ox:decorate id="email" label="#{msg['register.email']} "
-											style="margin-left: -15px;"
-											template="/WEB-INF/incl/layout/edit.xhtml">
-											<h:inputText autocomplete="off" class="form-control"
-												id="emailValidation" maxlength="60" redisplay="true"
-												required="true"
+											style="margin-left: -15px;" template="/WEB-INF/incl/layout/edit.xhtml">
+											<h:inputText autocomplete="off" class="form-control" id="emailValidation"
+												maxlength="60" redisplay="true" required="true"
 												requiredMessage="#{msg['register.pleaseEnterYourEmailAddress']}"
-												size="40" tabindex="7"
-												validator="#{registerPersonAction.validateEmail}"
+												size="40" tabindex="7" validator="#{registerPersonAction.validateEmail}"
 												value="#{registerPersonAction.email}">
-												<f:ajax event="keyup" execute="@this"
-													render="emailValidationMessage" />
+												<f:ajax event="keyup" execute="@this" render="emailValidationMessage" />
 											</h:inputText>
 											<h:message id="emailValidationMessage" for="emailValidation"
 												styleClass="rf-msg-det rf-msg-err" />
 											<h:outputText value=" " />
 										</ox:decorate>
 									</div>
-									<ui:fragment
-										rendered="#{not registerPersonAction.captchaDisabled}">
+									<ui:fragment rendered="#{not registerPersonAction.captchaDisabled}">
 										<s class="g-recaptcha text-center" style="magirn-left: 20%;"
 											data-sitekey="#{recaptchaService.recaptchaSiteKey}" />
 									</ui:fragment>
