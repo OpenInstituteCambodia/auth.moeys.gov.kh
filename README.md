@@ -67,5 +67,7 @@ $ chmod -R a-x+rX /opt/gluu/jetty/*/custom/pages/
 Upgrade will not apply any changes to the applied theme folder. After installing an upgrade package, the administrator should reapply changes manually.
 This theme may or may not compatible with your current installation of Gluu.
 
+> see https://gluu.org/docs/ce/4.1/operation/custom-design/#full-customization warning section
+
 ### License
 [![BSD 3-Clause License](https://img.shields.io/github/license/socheatsok78/angkorgreen-biz-docs)](LICENSE)
