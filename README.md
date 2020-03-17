@@ -50,3 +50,6 @@ After successfully install the theme, run the following command:
 $ chown -R jetty:jetty /opt/gluu/jetty/*/custom/pages/
 $ chmod -R a-x+rX /opt/gluu/jetty/*/custom/pages/
 ```
+
+### License
+[![BSD 3-Clause License](https://img.shields.io/github/license/socheatsok78/angkorgreen-biz-docs)](LICENSE)
