@@ -1,60 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ox="http://xmlns.jcp.org/jsf/composite/ox"
-	xmlns:rich="http://richfaces.org/rich"
-	xmlns:b="http://bootsfaces.net/ui"
-	xmlns:richext="http://xmlns.jcp.org/jsf/composite/richext"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	template="/WEB-INF/incl/layout/fullWidthEmpty.xhtml">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ox="http://xmlns.jcp.org/jsf/composite/ox" xmlns:rich="http://richfaces.org/rich"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:richext="http://xmlns.jcp.org/jsf/composite/richext"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" template="/WEB-INF/incl/layout/fullWidthEmpty.xhtml">
 	<f:metadata>
 		<f:viewParam name="inum" value="#{registerPersonAction.inum}" />
 		<f:viewAction action="#{conversationService.initConversation}" />
-		<f:viewAction action="#{registerPersonAction.initPerson}"
-			if="#{registerPersonAction.person == null}" onPostback="false" />
+		<f:viewAction action="#{registerPersonAction.initPerson}" if="#{registerPersonAction.person == null}"
+			onPostback="false" />
 	</f:metadata>
 
 	<ui:define name="head">
 		<style>
-.login-box, .register-box {
-	width: 800px !important;
-}
+			.login-box,
+			.register-box {
+				width: 800px !important;
+			}
 
-.login-logo, .register-logo {
-	margin-bottom: 0px;
-}
+			.login-logo,
+			.register-logo {
+				margin-bottom: 0px;
+			}
 
-iframe {
-	margin-left: 86%;
-}
+			iframe {
+				margin-left: 86%;
+			}
 
-.rf-p-b {
-	padding-top: 0px !important;
-}
+			.rf-p-b {
+				padding-top: 0px !important;
+			}
 
-.wrapper {
-	overflow-y: visible !important;
-	overflow-x: visible !important;
-}
+			.wrapper {
+				overflow-y: visible !important;
+				overflow-x: visible !important;
+			}
 
-.panel-primary>.panel-heading {
-	background-color: #00BE79 !important;
-}
+			.panel-primary>.panel-heading {
+				background-color: #00BE79 !important;
+			}
 
-.panel-primary>.panel-heading {
-	background-color: #00BE79 !important;
-}
+			.panel-primary>.panel-heading {
+				background-color: #00BE79 !important;
+			}
 
-.panel-primary {
-	border-color: #00BE79 !important;
-}
-</style>
+			.panel-primary {
+				border-color: #00BE79 !important;
+			}
+		</style>
 		<ui:fragment rendered="#{not registerPersonAction.captchaDisabled}">
-			<script async="async" defer="defer"
-				src="https://www.google.com/recaptcha/api.js" />
-		</ui:fragment>
+			<script async="async" defer="defer" src="https://www.google.com/recaptcha/api.js" />
+			</ui:fragment>
 	</ui:define>
 	<ui:define name="body">
 		<div id="formArea">
