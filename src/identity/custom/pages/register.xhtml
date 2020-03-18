@@ -138,6 +138,19 @@
 													value="#{_custAttr.metadata.gluuTooltip}" />
 											</a4j:outputPanel>
 										</a4j:repeat>
+										<ox:decorate id="email" label="#{msg['register.email']} "
+											style="margin-left: -15px;" template="/WEB-INF/incl/layout/edit.xhtml">
+											<h:inputText autocomplete="off" class="form-control" id="emailValidation"
+												maxlength="60" redisplay="true" required="true"
+												requiredMessage="#{msg['register.pleaseEnterYourEmailAddress']}"
+												size="40" tabindex="7" validator="#{registerPersonAction.validateEmail}"
+												value="#{registerPersonAction.email}">
+												<f:ajax event="keyup" execute="@this" render="emailValidationMessage" />
+											</h:inputText>
+											<h:message id="emailValidationMessage" for="emailValidation"
+												styleClass="rf-msg-det rf-msg-err" />
+											<h:outputText value=" " />
+										</ox:decorate>
 										<ox:decorate id="passwordField" label="#{msg['register.password']}"
 											style="margin-left: -15px;" template="/WEB-INF/incl/layout/edit.xhtml">
 											<h:inputSecret autocomplete="off" class="form-control" id="password"
@@ -154,19 +167,6 @@
 												<f:validator validatorId="equalsValidator" />
 												<f:attribute name="otherValue" value="#{passwordComponent.value}" />
 											</h:inputSecret>
-											<h:outputText value=" " />
-										</ox:decorate>
-										<ox:decorate id="email" label="#{msg['register.email']} "
-											style="margin-left: -15px;" template="/WEB-INF/incl/layout/edit.xhtml">
-											<h:inputText autocomplete="off" class="form-control" id="emailValidation"
-												maxlength="60" redisplay="true" required="true"
-												requiredMessage="#{msg['register.pleaseEnterYourEmailAddress']}"
-												size="40" tabindex="7" validator="#{registerPersonAction.validateEmail}"
-												value="#{registerPersonAction.email}">
-												<f:ajax event="keyup" execute="@this" render="emailValidationMessage" />
-											</h:inputText>
-											<h:message id="emailValidationMessage" for="emailValidation"
-												styleClass="rf-msg-det rf-msg-err" />
 											<h:outputText value=" " />
 										</ox:decorate>
 									</div>
