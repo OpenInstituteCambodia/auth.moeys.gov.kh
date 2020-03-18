@@ -138,8 +138,8 @@
 													value="#{_custAttr.metadata.gluuTooltip}" />
 											</a4j:outputPanel>
 										</a4j:repeat>
-										<ox:decorate id="email" label="#{msg['register.email']} "
-											style="margin-left: -15px;" template="/WEB-INF/incl/layout/edit.xhtml">
+										<ox:decorate id="email" label="អាសយដ្ឋានអ៊ីមែល " style="margin-left: -15px;"
+											template="/WEB-INF/incl/layout/edit.xhtml">
 											<h:inputText autocomplete="off" class="form-control" id="emailValidation"
 												maxlength="60" redisplay="true" required="true"
 												requiredMessage="#{msg['register.pleaseEnterYourEmailAddress']}"
@@ -151,15 +151,15 @@
 												styleClass="rf-msg-det rf-msg-err" />
 											<h:outputText value=" " />
 										</ox:decorate>
-										<ox:decorate id="passwordField" label="#{msg['register.password']}"
-											style="margin-left: -15px;" template="/WEB-INF/incl/layout/edit.xhtml">
+										<ox:decorate id="passwordField" label="ពាក្យសម្ងាត់" style="margin-left: -15px;"
+											template="/WEB-INF/incl/layout/edit.xhtml">
 											<h:inputSecret autocomplete="off" class="form-control" id="password"
 												binding="#{passwordComponent}" maxlength="60" redisplay="true"
 												required="true" size="40" tabindex="6"
 												value="#{registerPersonAction.password}" />
 											<h:outputText value=" " />
 										</ox:decorate>
-										<ox:decorate id="repeatPasswordField" label="#{msg['register.repeatPassword']}"
+										<ox:decorate id="repeatPasswordField" label="ពាក្យសម្ងាត់ (ម្ដងទៀត)"
 											style="margin-left: -15px;" template="/WEB-INF/incl/layout/edit.xhtml">
 											<h:inputSecret autocomplete="off" class="form-control"
 												id="passwordValidation" maxlength="60" redisplay="true" required="true"
