@@ -63,6 +63,18 @@ $ chown -R jetty:jetty /opt/gluu/jetty/*/custom/pages/
 $ chmod -R a-x+rX /opt/gluu/jetty/*/custom/pages/
 ```
 
+### i18n
+Customized i18n should be placed in the following directories:
+
+```
+/opt/gluu/jetty/identity/custom/i18n
+/opt/gluu/jetty/oxauth/custom/i18n
+```
+
+Resources from this folder will be loaded at the next service restart.
+
+> see https://gluu.org/docs/ce/4.1/developer-guide/localization/ for more informations
+
 ## :warning: Warning
 Upgrade will not apply any changes to the applied theme folder. After installing an upgrade package, the administrator should reapply changes manually.
 This theme may or may not compatible with your current installation of Gluu.
