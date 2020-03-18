@@ -7,7 +7,9 @@
 	locale="#{language.localeCode}">
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>#{organizationService.organization.organizationTitle}</title>
+		<title>
+			<ui:insert name="pageTitle" />
+		</title>
 		<script type="text/javascript">
 			if (top != self)
 				top.location.href = self.document.location;
