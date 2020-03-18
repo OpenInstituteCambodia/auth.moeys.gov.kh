@@ -143,7 +143,7 @@
 											<h:inputText autocomplete="off" class="form-control" id="emailValidation"
 												maxlength="60" redisplay="true" required="true"
 												requiredMessage="#{msg['register.pleaseEnterYourEmailAddress']}"
-												size="40" tabindex="7" validator="#{registerPersonAction.validateEmail}"
+												size="40" tabindex="6" validator="#{registerPersonAction.validateEmail}"
 												value="#{registerPersonAction.email}">
 												<f:ajax event="keyup" execute="@this" render="emailValidationMessage" />
 											</h:inputText>
@@ -155,7 +155,7 @@
 											template="/WEB-INF/incl/layout/edit.xhtml">
 											<h:inputSecret autocomplete="off" class="form-control" id="password"
 												binding="#{passwordComponent}" maxlength="60" redisplay="true"
-												required="true" size="40" tabindex="6"
+												required="true" size="40" tabindex="7"
 												value="#{registerPersonAction.password}" />
 											<h:outputText value=" " />
 										</ox:decorate>
